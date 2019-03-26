@@ -1,26 +1,22 @@
 const initialState = {
-  // tasksList: ["make presentation", "buy milk, eggs"],
   tasksList: [
     {
       id: 1,
-      title: "make presentation",
-      text: "add photos",
-      category: "Active"
+      text: "make presentation",
+      category: "School"
     },
     {
       id: 2,
-      title: "buy milk, eggs",
-      text: "to make cake",
-      category: "Active"
+      text: "buy milk, eggs",
+      category: "Shopping"
     }
   ],
-  taskCounter: 44
+  taskCounter: 2
 };
 
 const tasksReducer = (state = initialState, action) => {
   switch (action.type) {
     case "FETCH_TASKS": {
-      console.log("object");
       return state.tasksList;
     }
     case "DELETE_TASK":
@@ -37,16 +33,17 @@ const tasksReducer = (state = initialState, action) => {
         taskCounter: state.taskCounter + 1
       };
     }
-    case "INCREMENT": {
+    case "EDIT_TASK": {
       return {
-        ...state,
-        taskCounter: state.taskCounter + 1
+        ...state
+        // ...........
       };
     }
-    case "DECREMENT": {
+
+    case "CHECK_TASK_DONE": {
       return {
-        ...state,
-        taskCounter: state.taskCounter - 1
+        ...state
+        // ...........
       };
     }
     default:

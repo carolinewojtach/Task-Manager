@@ -2,13 +2,21 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import Category from "../Category/Category";
 
+import Repeat from "react-repeat-component";
+
+import "./Board.css";
+
 class Board extends Component {
   render() {
-    const categories = this.props.categories.map(category => (
-      <Category category={category} key={category.id} />
-    ));
+    const { categories } = this.props;
 
-    return <div>{categories}</div>;
+    return (
+      <div className="container">
+        <Repeat times={categories.length} className="row">
+          {i => <Category id={i} key={i} catTitle={categories[i]} />}
+        </Repeat>
+      </div>
+    );
   }
 }
 

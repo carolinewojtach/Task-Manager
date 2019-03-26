@@ -1,0 +1,16 @@
+.task {
+    width: 100%;
+    border: 1px solid #bbbbbb;
+    border-radius: 5px;
+    padding: 5px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+  }
+  
+  .task-text {
+    padding: 5px;
+  }
+  
+  .test {
+  text-align: right
+  }

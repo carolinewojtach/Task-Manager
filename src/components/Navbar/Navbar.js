@@ -1,16 +1,17 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import "./Navbar.css";
+
 import { addTask } from "../../actions/tasksActions";
 import Button from "../Button/Button";
+
 class Navbar extends Component {
   addTask = () => {
     this.props.dispatch(
       addTask({
         id: 5,
-        title: "new task",
-        text: "taaask",
-        category: "Active"
+        text: "new task",
+        category: "Work"
       })
     );
   };

@@ -18,14 +18,14 @@ export function fetchTasks() {
   };
 }
 
-export function decrement() {
+export function editTask() {
   return {
-    type: "DECREMENT"
+    type: "EDIT_TASK"
   };
 }
 
-export function increment() {
+export function checkTaskDone() {
   return {
-    type: "INCREMENT"
+    type: "CHECK_TASK_DONE"
   };
 }

@@ -1,5 +1,5 @@
 const initialState = {
-  categories: ["Active", "In Progress", "Done", "New category"]
+  categories: ["School", "Work", "Cooking", "Shopping"]
 };
 
 const categoriesReducer = (state = initialState, action) => {
