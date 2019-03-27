@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 
 import "./Task.css";
 import Button from "../Button/Button";
@@ -13,6 +14,7 @@ class Task extends Component {
     this.props.dispatch(editTask(id));
   };
   checkTaskDone = id => {
+    console.log(id);
     this.props.dispatch(checkTaskDone(id));
   };
   deleteTask = id => {
@@ -20,11 +22,21 @@ class Task extends Component {
   };
 
   render() {
-    const { text, id } = this.props;
+    const { text, id, status } = this.props;
+    // console.log(text, id, status);
     return (
       <div className="task" key={id}>
         <div className="row">
-          <div className="col-7">{text}</div>
+          <div
+            className="col-7"
+            style={{
+              textDecoration: status === "Done" ? "line-through" : "none"
+            }}
+          >
+            {text}
+            {status}
+          </div>
+
           <Button id={id} type="fas fa-edit" action={() => this.editTask(id)} />
           <Button
             id={id}
@@ -41,4 +53,9 @@ class Task extends Component {
     );
   }
 }
-export default Task;
+
+const mapStateToProps = state => ({
+  tasks: state.tasks
+});
+
+export default connect(mapStateToProps)(Task);

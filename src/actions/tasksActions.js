@@ -18,14 +18,16 @@ export function fetchTasks() {
   };
 }
 
-export function editTask() {
+export function editTask(id) {
   return {
-    type: "EDIT_TASK"
+    type: "EDIT_TASK",
+    payload: id
   };
 }
 
-export function checkTaskDone() {
+export function checkTaskDone(id) {
   return {
-    type: "CHECK_TASK_DONE"
+    type: "CHECK_TASK_DONE",
+    payload: id
   };
 }

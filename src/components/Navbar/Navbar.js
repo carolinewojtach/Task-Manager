@@ -11,13 +11,14 @@ class Navbar extends Component {
       addTask({
         id: 5,
         text: "new task",
-        category: "Work"
+        category: "Work",
+        status: "Active"
       })
     );
   };
 
   render() {
-    const { taskCounter } = this.props;
+    const { tasks } = this.props;
 
     return (
       <div className="navbar navbar-expand-md navbar-dark bg-light sticky-top">
@@ -26,7 +27,7 @@ class Navbar extends Component {
             <h3>Task Manager</h3>
           </div>
           <div className="row">
-            {taskCounter}
+            {tasks.length}
             <Button action={this.addTask} type="fas fa-plus" />
           </div>
         </div>
@@ -36,7 +37,7 @@ class Navbar extends Component {
 }
 
 const mapStateToProps = state => ({
-  taskCounter: state.tasks.taskCounter
+  tasks: state.tasks
 });
 
 export default connect(mapStateToProps)(Navbar);

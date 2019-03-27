@@ -21,7 +21,6 @@ class Board extends Component {
 }
 
 const mapStateToProps = state => ({
-  categories: state.categories.categories,
-  tasksList: state.tasks.tasksList
+  categories: state.categories.categories
 });
 export default connect(mapStateToProps)(Board);

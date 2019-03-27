@@ -8,9 +8,7 @@ class TasksList extends Component {
   render() {
     const { catTitle } = this.props;
 
-    const tasks = this.props.tasksList.filter(
-      task => task.category === catTitle
-    );
+    const tasks = this.props.tasks.filter(task => task.category === catTitle);
 
     return (
       <div>
@@ -30,6 +28,6 @@ class TasksList extends Component {
 }
 
 const mapStateToProps = state => ({
-  tasksList: state.tasks.tasksList
+  tasks: state.tasks
 });
 export default connect(mapStateToProps)(TasksList);
