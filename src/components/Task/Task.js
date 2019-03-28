@@ -16,25 +16,24 @@ class Task extends Component {
   checkTaskDone = id => {
     console.log(id);
     this.props.dispatch(checkTaskDone(id));
+    console.log(this.props.tasks);
   };
   deleteTask = id => {
     this.props.dispatch(deleteTask(id));
   };
 
   render() {
-    const { text, id, status } = this.props;
-    // console.log(text, id, status);
+    const { text, id, completed } = this.props;
     return (
       <div className="task" key={id}>
         <div className="row">
           <div
             className="col-7"
             style={{
-              textDecoration: status === "Done" ? "line-through" : "none"
+              textDecoration: completed ? "line-through" : "none"
             }}
           >
             {text}
-            {status}
           </div>
 
           <Button id={id} type="fas fa-edit" action={() => this.editTask(id)} />

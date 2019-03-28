@@ -1,15 +1,15 @@
 const initialState = [
   {
-    id: 1,
+    id: "id-1",
     text: "make presentation",
     category: "School",
-    status: "Active"
+    completed: true
   },
   {
-    id: 2,
+    id: "id-2",
     text: "buy milk, eggs",
     category: "Shopping",
-    status: "Done"
+    completed: false
   }
 ];
 
@@ -26,31 +26,28 @@ const tasksReducer = (state = initialState, action) => {
       return [...state, action.payload];
     }
 
-    case "EDIT_TASK": {
+    case "EDIT_TASK":
       return state.map(task =>
         task.id === action.id
           ? {
               ...task,
               text: action.text,
               category: action.category,
-              status: action.status
+              completed: action.completed
             }
           : task
       );
-    }
 
-    case "CHECK_TASK_DONE": {
-      console.log(action.payload);
-      const task2 = state.filter(task =>
-        task.id === action.payload
+    case "CHECK_TASK_DONE":
+      return state.map(task =>
+        task.id === action.id
           ? {
               ...task,
-              status: "Done"
+              completed: !task.completed
             }
           : task
       );
-      return [...state, task2];
-    }
+
     default:
       return state;
   }
