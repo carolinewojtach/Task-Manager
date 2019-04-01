@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 
 import "./Task.css";
-import Button from "../Button/Button";
+import ButtonIcon from "../ButtonIcon/ButtonIcon";
 import {
   editTask,
   checkTaskDone,
@@ -36,13 +36,17 @@ class Task extends Component {
             {text}
           </div>
 
-          <Button id={id} type="fas fa-edit" action={() => this.editTask(id)} />
-          <Button
+          <ButtonIcon
+            id={id}
+            type="fas fa-edit"
+            action={() => this.editTask(id)}
+          />
+          <ButtonIcon
             id={id}
             type="fas fa-check"
             action={() => this.checkTaskDone(id)}
           />
-          <Button
+          <ButtonIcon
             id={id}
             type="fas fa-times"
             action={() => this.deleteTask(id)}

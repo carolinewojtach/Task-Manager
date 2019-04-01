@@ -11,11 +11,9 @@ class Board extends Component {
     const { categories } = this.props;
 
     return (
-      <div className="container">
-        <Repeat times={categories.length} className="row">
-          {i => <Category id={i} key={i} catTitle={categories[i]} />}
-        </Repeat>
-      </div>
+      <Repeat times={categories.length}>
+        {i => <Category id={i} key={i} catTitle={categories[i]} />}
+      </Repeat>
     );
   }
 }

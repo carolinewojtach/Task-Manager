@@ -25,3 +25,10 @@
 .display-none {
   display: none;
 }
+
+.footer-modal {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 1rem;
+}
