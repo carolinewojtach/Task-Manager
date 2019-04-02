@@ -1,7 +1,10 @@
-.icon i {
+.btn-gray {
   color: #bbbbbb;
-}
-  
+ }
+.btn-black {
+  color: black;
+} 
+ 
 .icon i:hover {
   color: #4ab6a4;
 }

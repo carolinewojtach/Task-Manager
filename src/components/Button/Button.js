@@ -1,12 +1,12 @@
 import React from "react";
 import "./Button.css";
 
-const Button = ({ type, id, action, text, className }) => {
+const Button = ({ id, action, text, className }) => {
   return (
     <div>
       <button
         className={className}
-        type={type}
+        type="button"
         key={id}
         onClick={() => action()}
       >

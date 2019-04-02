@@ -14,9 +14,7 @@ class Task extends Component {
     this.props.dispatch(editTask(id));
   };
   checkTaskDone = id => {
-    console.log(id);
     this.props.dispatch(checkTaskDone(id));
-    console.log(this.props.tasks);
   };
   deleteTask = id => {
     this.props.dispatch(deleteTask(id));
@@ -38,17 +36,17 @@ class Task extends Component {
 
           <ButtonIcon
             id={id}
-            type="fas fa-edit"
+            type="fas fa-edit btn-gray"
             action={() => this.editTask(id)}
           />
           <ButtonIcon
             id={id}
-            type="fas fa-check"
+            type="fas fa-check btn-gray"
             action={() => this.checkTaskDone(id)}
           />
           <ButtonIcon
             id={id}
-            type="fas fa-times"
+            type="fas fa-times btn-gray"
             action={() => this.deleteTask(id)}
           />
         </div>

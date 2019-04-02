@@ -20,15 +20,17 @@ class Navbar extends Component {
     const { tasks } = this.props;
 
     return (
-      <div className="navbar navbar-expand-md navbar-dark bg-light sticky-top">
-        <div className="container-fluid">
-          <div className="col-10">
-            <h3>Task Manager</h3>
-          </div>
-          <div className="row">
-            {tasks.length}
-            <ButtonIcon action={this.showAddTaskModal} type="fas fa-plus" />
-          </div>
+      // <div className="navbar navbar-expand-md navbar-dark bg-light sticky-top">
+      <div className="header">
+        <div className="col-10">
+          <p>Task Manager</p>
+        </div>
+        <div className="row">
+          {tasks.length}
+          <ButtonIcon
+            action={this.showAddTaskModal}
+            type="fas fa-plus btn-black"
+          />
         </div>
 
         <div>

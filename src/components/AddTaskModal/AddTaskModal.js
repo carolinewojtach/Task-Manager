@@ -6,21 +6,29 @@ import { addTask } from "../../actions/tasksActions";
 import Button from "../Button/Button";
 
 class AddTaskModal extends Component {
-  randomId = () => {
-    return Math.random()
-      .toString(36)
-      .substr(2, 16);
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      default: {
+        text: "",
+        category: props.categories[0]
+      },
+      text: "",
+      category: props.categories[0]
+    };
+    this.addTask = this.addTask.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+  }
 
   addTask = () => {
-    this.props.dispatch(
-      addTask({
-        id: `id-${this.randomId()}`,
-        text: "new task",
-        category: "Work",
-        status: true
-      })
-    );
+    this.props.handleClose();
+    this.props.dispatch(addTask(this.state));
+    this.setState({ text: "", categories: this.props.categories[0] });
+  };
+
+  handleChange = event => {
+    const name = event.target.name;
+    this.setState({ [name]: event.target.value });
   };
 
   render() {
@@ -32,7 +40,7 @@ class AddTaskModal extends Component {
     const categoriesSelect = categories.length ? (
       categories.map(e => {
         return (
-          <option key={e} value="category">
+          <option key={e} name="category" value={e}>
             {e}
           </option>
         );
@@ -46,26 +54,34 @@ class AddTaskModal extends Component {
         <section className="modal-main">
           <p>Create your new task</p>
           <div>
-            <form onSubmit={() => this.addTask()}>
-              <p>
-                Text:
-                <input type="text" />
-              </p>
-              <p>
-                Category:
-                <select name="categories">{categoriesSelect}</select>
-              </p>
+            <label>
+              Text:
+              <input
+                type="text"
+                value={this.state.text}
+                onChange={e => this.handleChange(e)}
+                name="text"
+              />
+            </label>
+            <label>
+              Category:
+              <select
+                value={this.state.category}
+                onChange={e => this.handleChange(e)}
+                name="category"
+              >
+                {categoriesSelect}
+              </select>
+            </label>
 
-              <div className="footer-modal">
-                <Button type="submit" text="Add Task" className="butt green" />
-                <Button
-                  action={handleClose}
-                  type="button"
-                  text="Close"
-                  className="butt gray"
-                />
-              </div>
-            </form>
+            <div className="footer-modal">
+              <Button
+                text="Add Task"
+                action={this.addTask}
+                className="butt green"
+              />
+              <Button text="Close" action={handleClose} className="butt gray" />
+            </div>
           </div>
         </section>
       </div>

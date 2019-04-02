@@ -9,8 +9,8 @@ class Category extends Component {
   render() {
     const { catTitle } = this.props;
     return (
-      <div className="category">
-        <div className="category-container">
+      <div>
+        <div className="category">
           <CategoryNav catTitle={catTitle} />
           <TasksList catTitle={catTitle} />
         </div>
@@ -18,7 +18,5 @@ class Category extends Component {
     );
   }
 }
-// const mapStateToProps = state => ({
-//      categories: state.categories.categories
-//   });
+
 export default Category;
