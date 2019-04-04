@@ -1,15 +1,27 @@
 .task {
   border: 1px solid #bbbbbb;
   border-radius: 5px;
-  padding: 5px;
-  margin-top: 3px;
-  margin-bottom: 3px;
+  /* padding: 10px 15px; */
+  margin-top: 5px;
+  margin-bottom: 5px;
+  display: flex;
+  justify-content: space-between;
 }
-  
+
 .task-text {
   padding: 5px;
+  margin: 10px;
 }
-  
-.test {
-  text-align: right
+
+.line-through {
+  text-decoration: line-through;
+}
+
+.none {
+  text-decoration: none;
+}
+
+.tasks-buttons {
+  display: flex;
+  margin: 15px;
 }

@@ -9,11 +9,10 @@ class App extends Component {
   render() {
     return (
       <div className="page">
+        <Navbar />
         <div className="container">
-          <Navbar />
           <Board />
         </div>
-
         <Footer />
       </div>
     );

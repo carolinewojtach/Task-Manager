@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import PropTypes from "prop-types";
 
 import "./AddTaskModal.css";
+
 import { addTask } from "../../actions/tasksActions";
 import Button from "../Button/Button";
 
@@ -9,33 +11,26 @@ class AddTaskModal extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      default: {
-        text: "",
-        category: props.categories[0]
-      },
       text: "",
       category: props.categories[0]
     };
     this.addTask = this.addTask.bind(this);
-    this.handleChange = this.handleChange.bind(this);
+    this.handleInputChange = this.handleInputChange.bind(this);
   }
 
   addTask = () => {
-    this.props.handleClose();
+    this.props.handleToggle();
     this.props.dispatch(addTask(this.state));
     this.setState({ text: "", categories: this.props.categories[0] });
   };
 
-  handleChange = event => {
+  handleInputChange = event => {
     const name = event.target.name;
     this.setState({ [name]: event.target.value });
   };
 
   render() {
-    const { handleClose, show, categories } = this.props;
-    const showHideClassName = show
-      ? "modal display-block"
-      : "modal display-none";
+    const { handleToggle, categories } = this.props;
 
     const categoriesSelect = categories.length ? (
       categories.map(e => {
@@ -50,24 +45,26 @@ class AddTaskModal extends Component {
     );
 
     return (
-      <div className={showHideClassName}>
+      <div className="modal">
         <section className="modal-main">
           <p>Create your new task</p>
           <div>
             <label>
-              Text:
+              Description:
               <input
                 type="text"
                 value={this.state.text}
-                onChange={e => this.handleChange(e)}
+                onChange={e => this.handleInputChange(e)}
                 name="text"
+                required
               />
             </label>
+            <br />
             <label>
               Category:
               <select
                 value={this.state.category}
-                onChange={e => this.handleChange(e)}
+                onChange={e => this.handleInputChange(e)}
                 name="category"
               >
                 {categoriesSelect}
@@ -80,7 +77,11 @@ class AddTaskModal extends Component {
                 action={this.addTask}
                 className="butt green"
               />
-              <Button text="Close" action={handleClose} className="butt gray" />
+              <Button
+                text="Close"
+                action={handleToggle}
+                className="butt gray"
+              />
             </div>
           </div>
         </section>
@@ -94,3 +95,7 @@ const mapStateToProps = state => ({
 });
 
 export default connect(mapStateToProps)(AddTaskModal);
+
+AddTaskModal.propTypes = {
+  children: PropTypes.node.isRequired
+};

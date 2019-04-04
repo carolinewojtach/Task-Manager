@@ -3,6 +3,8 @@ import { connect } from "react-redux";
 
 import "./Task.css";
 import ButtonIcon from "../ButtonIcon/ButtonIcon";
+import Text from "../Text/Text";
+
 import {
   editTask,
   checkTaskDone,
@@ -22,18 +24,15 @@ class Task extends Component {
 
   render() {
     const { text, id, completed } = this.props;
+
+    const completedClassName = completed ? "line-through" : "none";
+
     return (
       <div className="task" key={id}>
-        <div className="row">
-          <div
-            className="col-7"
-            style={{
-              textDecoration: completed ? "line-through" : "none"
-            }}
-          >
-            {text}
-          </div>
-
+        <div className={completedClassName}>
+          <Text text={text} className="task-text" />
+        </div>
+        <div className="tasks-buttons">
           <ButtonIcon
             id={id}
             type="fas fa-edit btn-gray"

@@ -12,6 +12,7 @@
 .col-12 {width: 100%;} */
 .category {
   width: 100%;
+  width: 220px;
   margin: auto;
   padding: 15px;
   -moz-box-sizing: border-box;

@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
+import "./TasksList.css";
+
 import Repeat from "react-repeat-component";
 import Task from "../Task/Task";
 
@@ -11,18 +13,17 @@ class TasksList extends Component {
     const tasks = this.props.tasks.filter(task => task.category === catTitle);
 
     return (
-      <div>
-        <Repeat times={tasks.length} className="row">
-          {i => (
-            <Task
-              key={tasks[i].id}
-              id={tasks[i].id}
-              text={tasks[i].text}
-              category={tasks[i].category}
-            />
-          )}
-        </Repeat>
-      </div>
+      <Repeat times={tasks.length} className="tasks-list">
+        {i => (
+          <Task
+            key={tasks[i].id}
+            id={tasks[i].id}
+            text={tasks[i].text}
+            category={tasks[i].category}
+            completed={tasks[i].completed}
+          />
+        )}
+      </Repeat>
     );
   }
 }

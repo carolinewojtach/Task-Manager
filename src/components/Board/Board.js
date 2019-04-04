@@ -11,7 +11,7 @@ class Board extends Component {
     const { categories } = this.props;
 
     return (
-      <Repeat times={categories.length}>
+      <Repeat times={categories.length} className="board">
         {i => <Category id={i} key={i} catTitle={categories[i]} />}
       </Repeat>
     );

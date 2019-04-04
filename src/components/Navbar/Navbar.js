@@ -1,44 +1,41 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+
 import "./Navbar.css";
 
 import ButtonIcon from "../ButtonIcon/ButtonIcon";
 import AddTaskModal from "../AddTaskModal/AddTaskModal";
+import Modal from "../Modal/Modal";
 
 class Navbar extends Component {
   state = { show: false };
 
-  showAddTaskModal = () => {
-    this.setState({ show: true });
-  };
-
-  hideAddTaskModal = () => {
-    this.setState({ show: false });
+  toggleAddTaskModal = () => {
+    this.setState({ show: !this.state.show });
   };
 
   render() {
     const { tasks } = this.props;
-
     return (
       // <div className="navbar navbar-expand-md navbar-dark bg-light sticky-top">
       <div className="header">
-        <div className="col-10">
+        <div className="head-left">
           <p>Task Manager</p>
         </div>
-        <div className="row">
-          {tasks.length}
+        <div className="head-right">
+          <p>{tasks.length}</p>
+
           <ButtonIcon
-            action={this.showAddTaskModal}
+            action={this.toggleAddTaskModal}
             type="fas fa-plus btn-black"
           />
         </div>
 
-        <div>
-          <AddTaskModal
-            show={this.state.show}
-            handleClose={this.hideAddTaskModal}
-          />
-        </div>
+        <Modal>
+          {this.state.show ? (
+            <AddTaskModal handleToggle={this.toggleAddTaskModal} />
+          ) : null}
+        </Modal>
       </div>
     );
   }
@@ -49,3 +46,22 @@ const mapStateToProps = state => ({
 });
 
 export default connect(mapStateToProps)(Navbar);
+
+function Child() {
+  // The click event on this button will bubble up to parent,
+  // because there is no 'onClick' attribute defined
+  return (
+    <div className="modal">
+      <p>Click</p>
+      <p>Click</p>
+      <p>Click</p>
+      <p>Click</p>
+      <p>Click</p>
+      <p>Click</p>
+      <p>Click</p>
+      <p>Click</p>
+
+      <p>Click</p>
+    </div>
+  );
+}

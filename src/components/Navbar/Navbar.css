@@ -2,12 +2,20 @@
   position: fixed;
   top: 0;
   left: 0;
-  right:0;
-  z-index: 1020;
+  right: 0;
+  z-index: 10;
   display: flex;
-  flex-wrap: wrap;    
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  padding: .5rem 1rem;
-  background-color:  #bbbbbb;
+  padding: 0.5rem 1rem;
+  background-color: #bbbbbb;
+}
+
+.head-right {
+  margin-right: 5px;
+  width: 100px;
+  display: flex;
+  justify-content: flex-end;
+  flex-grow: 1;
 }
