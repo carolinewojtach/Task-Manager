@@ -1,27 +1,37 @@
 .task {
   border: 1px solid #bbbbbb;
   border-radius: 5px;
-  /* padding: 10px 15px; */
   margin-top: 5px;
   margin-bottom: 5px;
-  display: flex;
+  display: block;
   justify-content: space-between;
 }
 
 .task-text {
-  padding: 5px;
-  margin: 10px;
+  margin: 10px 15px;
 }
 
-.line-through {
+.task-completed {
   text-decoration: line-through;
+  color: #bbbbbb;
 }
 
-.none {
+.task-uncompleted {
   text-decoration: none;
 }
 
 .tasks-buttons {
   display: flex;
-  margin: 15px;
+  margin: 0px;
+  justify-content: flex-end;
 }
+
+@media (min-width: 576px) {
+
+}
+
+@media (min-width: 768px) {
+ 
+}
+@media (min-width: 992px){}
+@media (min-width: 1200px){}

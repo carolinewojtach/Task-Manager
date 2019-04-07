@@ -9,3 +9,8 @@
 .icon i:hover {
   color: #4ab6a4;
 }
+
+.icon i {
+  margin-right: 10px;
+  margin-bottom: 10px
+}

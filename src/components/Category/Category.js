@@ -9,11 +9,9 @@ class Category extends Component {
   render() {
     const { catTitle } = this.props;
     return (
-      <div>
-        <div className="category">
-          <CategoryNav catTitle={catTitle} />
-          <TasksList catTitle={catTitle} />
-        </div>
+      <div className="category">
+        <CategoryNav catTitle={catTitle} />
+        <TasksList catTitle={catTitle} />
       </div>
     );
   }

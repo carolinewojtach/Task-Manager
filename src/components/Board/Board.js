@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import Category from "../Category/Category";
-
 import Repeat from "react-repeat-component";
 
 import "./Board.css";
+
+import Category from "../Category/Category";
 
 class Board extends Component {
   render() {

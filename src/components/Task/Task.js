@@ -25,7 +25,9 @@ class Task extends Component {
   render() {
     const { text, id, completed } = this.props;
 
-    const completedClassName = completed ? "line-through" : "none";
+    const completedClassName = completed
+      ? "task-completed"
+      : "task-uncompleted";
 
     return (
       <div className="task" key={id}>

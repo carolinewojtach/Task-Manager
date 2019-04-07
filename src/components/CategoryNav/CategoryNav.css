@@ -1,11 +1,13 @@
 .category-nav {
   background-color:#4ab6a4;
   margin: 10px 0;
+  display: flex;
+  justify-content: space-between;
 }
   
 .title {
-  padding: 10px;
   padding-left: 15px;
+  padding-right: 15px;
   color: white
 }
   

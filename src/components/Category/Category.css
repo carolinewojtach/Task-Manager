@@ -1,85 +1,25 @@
-/* .col-1 {width: 8.33%;}
-.col-2 {width: 16.66%;} */
-/* .category {width: auto;}  */
-/* .col-4 {width: 33.33%;}
-.col-5 {width: 41.66%;}
-.col-6 {width: 50%;}
-.col-7 {width: 58.33%;}
-.col-8 {width: 66.66%;}
-.col-9 {width: 75%;}
-.col-10 {width: 83.33%;}
-.col-11 {width: 91.66%;}
-.col-12 {width: 100%;} */
 .category {
   width: 100%;
   width: 220px;
   margin: auto;
-  padding: 15px;
+  padding: 10px;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
+  /* test */
+  float: 100%;
+  max-width: 100%;
 }
-/* [class*="col-"] {
-  float: left;
-  padding: 15px;
-  border: 1px solid red;
-} */
 
-/* .con::after {
-  content: "";
-  clear: both;
-  display: table;
-} */
-
-/* Extra small devices (phones, 600px and down) */
-@media only screen and (max-width: 600px) { 
+@media (min-width: 768px) {
   .category {
-    /* justify-content: center;
-    float: left;
-    width: 100%; */
+    flex: 50%;
+    max-width: 50%;
   }
-} 
-
-/* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (min-width: 600px) {
-  /* .category {
-    float: left;
-    width: 50%;
-  } */
-}  
-
-/* Medium devices (landscape tablets, 768px and up) */
-@media only screen and (min-width: 768px) {
-  /* .category {
-    float: left;
-    width: 25%;
-  } */
-}  
-
-/* Large devices (laptops/desktops, 992px and up) */
-/* @media only screen and (min-width: 992px) {
-}  */
-
-/* Extra large devices (large laptops and desktops, 1200px and up) */
-/* @media only screen and (min-width: 1200px) {} */
-
-
-/* Create four equal columns that floats next to each other */
-/* .category {
-  float: left;
-  width: 25%;
-} */
-
-/* On screens that are 992px wide or less, go from four columns to two columns */
-/* @media screen and (max-width: 992px) {
+}
+@media (min-width: 992px){
   .category {
-    width: 45%;
+    flex: 25%;
+    max-width: 25%;
   }
-} */
-
-/* On screens that are 600px wide or less, make the columns stack on top of each other instead of next to each other */
-/* @media screen and (max-width: 600px) {
-  .category {
-    width: 100%;
-  }
-} */
+}

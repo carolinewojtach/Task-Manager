@@ -7,17 +7,20 @@ import Text from "../Text/Text";
 
 class BoardNav extends Component {
   render() {
+    const { catTitle, tasks } = this.props;
+    const numberOfTasks = tasks.filter(task => task.category === catTitle)
+      .length;
     return (
       <div className="category-nav">
-        {/* <p className="title">{this.props.catTitle}</p> */}
-        <Text className="title" text={this.props.catTitle} />
-        {/* <h5 className="title col-2">{numberOfTasks}</h5> */}
+        <Text className="title" text={catTitle} />
+        <Text className="title" text={numberOfTasks} />
       </div>
     );
   }
 }
 
 const mapStateToProps = state => ({
-  //   categories: state.categories.categories
+  tasks: state.tasks
 });
+
 export default connect(mapStateToProps)(BoardNav);
