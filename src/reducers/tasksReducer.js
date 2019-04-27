@@ -1,3 +1,11 @@
+import {
+  ADD_TASK,
+  DELETE_TASK,
+  FETCH_TASKS,
+  EDIT_TASK,
+  CHECK_TASK_DONE
+} from "../actions/actionTypes";
+
 const initialState = [
   // {
   //   id: "id-1",
@@ -68,21 +76,21 @@ const randomId = () => {
 };
 const tasksReducer = (state = initialState, action) => {
   switch (action.type) {
-    case "FETCH_TASKS": {
+    case FETCH_TASKS: {
       return state;
     }
 
-    case "DELETE_TASK":
+    case DELETE_TASK:
       return state.filter(task => task.id !== action.payload);
 
-    case "ADD_TASK": {
+    case ADD_TASK: {
       let task = { ...action.payload };
       task.id = randomId();
       task.completed = false;
       return [...state, task];
     }
 
-    case "EDIT_TASK":
+    case EDIT_TASK:
       return state.map(task =>
         task.id === action.id
           ? {
@@ -94,7 +102,7 @@ const tasksReducer = (state = initialState, action) => {
           : task
       );
 
-    case "CHECK_TASK_DONE":
+    case CHECK_TASK_DONE:
       return state.map(task =>
         task.id === action.payload
           ? {
