@@ -4,8 +4,10 @@ import { connect } from "react-redux";
 import "./Navbar.css";
 
 import ButtonIcon from "../ButtonIcon/ButtonIcon";
-import AddTaskModal from "../AddTaskModal/AddTaskModal";
-import Modal from "../Modal/Modal";
+import AddTaskModal from "../../Modals/AddTaskModal/AddTaskModal";
+import Modal from "../../Modals/Modal/Modal";
+
+import Text from "../Text/Text";
 
 class Navbar extends Component {
   state = { show: false };
@@ -23,12 +25,13 @@ class Navbar extends Component {
           <p>Task Manager</p>
         </div>
         <div className="head-right">
-          <p>{tasks.length}</p>
-
-          <ButtonIcon
-            action={this.toggleAddTaskModal}
-            type="fas fa-plus btn-black"
-          />
+          <Text className="title black" text={tasks.length} />
+          <div className="icon-plus">
+            <ButtonIcon
+              action={this.toggleAddTaskModal}
+              type="fas fa-plus btn-black"
+            />
+          </div>
         </div>
 
         <Modal>

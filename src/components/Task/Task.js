@@ -4,6 +4,8 @@ import { connect } from "react-redux";
 import "./Task.css";
 import ButtonIcon from "../ButtonIcon/ButtonIcon";
 import Text from "../Text/Text";
+import EditTaskModal from "../../Modals/EditTaskModal/EditTaskModal";
+import Modal from "../../Modals/Modal/Modal";
 
 import {
   editTask,
@@ -12,9 +14,12 @@ import {
 } from "../../actions/tasksActions";
 
 class Task extends Component {
-  editTask = id => {
-    this.props.dispatch(editTask(id));
+  state = { show: false };
+
+  toggleEditTaskModal = () => {
+    this.setState({ show: !this.state.show });
   };
+
   checkTaskDone = id => {
     this.props.dispatch(checkTaskDone(id));
   };
@@ -23,7 +28,7 @@ class Task extends Component {
   };
 
   render() {
-    const { text, id, completed } = this.props;
+    const { text, id, completed, category } = this.props;
 
     const completedClassName = completed
       ? "task-completed"
@@ -38,7 +43,7 @@ class Task extends Component {
           <ButtonIcon
             id={id}
             type="fas fa-edit btn-gray"
-            action={() => this.editTask(id)}
+            action={() => this.toggleEditTaskModal(id)}
           />
           <ButtonIcon
             id={id}
@@ -51,6 +56,17 @@ class Task extends Component {
             action={() => this.deleteTask(id)}
           />
         </div>
+
+        <Modal>
+          {this.state.show ? (
+            <EditTaskModal
+              text={text}
+              category={category}
+              id={id}
+              handleToggle={this.toggleEditTaskModal}
+            />
+          ) : null}
+        </Modal>
       </div>
     );
   }

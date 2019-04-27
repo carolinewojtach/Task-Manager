@@ -8,15 +8,23 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  /* padding: 0.5rem 1rem; */
   height: 70px;
   background-color: #bbbbbb;
 }
 
 .head-right {
   margin-right: 5px;
-  width: 100px;
   display: flex;
   justify-content: flex-end;
   flex-grow: 1;
+}
+
+.head-left {
+  padding-left: 20px;
+}
+
+.icon-plus {
+  display: flex;
+  padding-right: 15px;
+  padding-left: 15px;
 }

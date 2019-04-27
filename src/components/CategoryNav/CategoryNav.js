@@ -12,8 +12,8 @@ class BoardNav extends Component {
       .length;
     return (
       <div className="category-nav">
-        <Text className="title" text={catTitle} />
-        <Text className="title" text={numberOfTasks} />
+        <Text className="title white" text={catTitle} />
+        <Text className="title white" text={numberOfTasks} />
       </div>
     );
   }

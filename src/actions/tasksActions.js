@@ -26,10 +26,10 @@ export function fetchTasks() {
   };
 }
 
-export function editTask(id) {
+export function editTask(task) {
   return {
     type: EDIT_TASK,
-    payload: id
+    payload: task
   };
 }
 

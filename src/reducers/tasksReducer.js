@@ -74,6 +74,7 @@ const randomId = () => {
     .toString(36)
     .substr(2, 16);
 };
+
 const tasksReducer = (state = initialState, action) => {
   switch (action.type) {
     case FETCH_TASKS: {
@@ -90,18 +91,18 @@ const tasksReducer = (state = initialState, action) => {
       return [...state, task];
     }
 
-    case EDIT_TASK:
-      return state.map(task =>
-        task.id === action.id
+    case EDIT_TASK: {
+      let task = { ...action.payload };
+      return state.map(t =>
+        t.id === task.id
           ? {
-              ...task,
-              text: action.text,
-              category: action.category,
-              completed: action.completed
+              ...t,
+              text: task.text,
+              category: task.category
             }
-          : task
+          : t
       );
-
+    }
     case CHECK_TASK_DONE:
       return state.map(task =>
         task.id === action.payload

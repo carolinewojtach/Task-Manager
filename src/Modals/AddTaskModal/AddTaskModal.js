@@ -1,11 +1,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import PropTypes from "prop-types";
 
-import "./AddTaskModal.css";
-
+import Text from "../../components/Text/Text";
 import { addTask } from "../../actions/tasksActions";
-import Button from "../Button/Button";
+import Button from "../../components/Button/Button";
 
 class AddTaskModal extends Component {
   constructor(props) {
@@ -47,42 +45,41 @@ class AddTaskModal extends Component {
     return (
       <div className="modal">
         <section className="modal-main">
-          <p>Create your new task</p>
+          <Text className="title black" text="Create your new task" />
           <div>
-            <label>
-              Description:
-              <input
-                type="text"
-                value={this.state.text}
-                onChange={e => this.handleInputChange(e)}
-                name="text"
-                required
-              />
-            </label>
-            <br />
-            <label>
-              Category:
-              <select
-                value={this.state.category}
-                onChange={e => this.handleInputChange(e)}
-                name="category"
-              >
-                {categoriesSelect}
-              </select>
-            </label>
+            <form>
+              <div className="form-group">
+                <label>Description:</label>
+                <input
+                  className="form-input"
+                  type="text"
+                  value={this.state.text}
+                  onChange={e => this.handleInputChange(e)}
+                  name="text"
+                  required
+                />
+              </div>
 
-            <div className="footer-modal">
-              <Button
-                text="Add Task"
-                action={this.addTask}
-                className="butt green"
-              />
-              <Button
-                text="Close"
-                action={handleToggle}
-                className="butt gray"
-              />
-            </div>
+              <div className="form-group">
+                <label>Category:</label>
+                <select
+                  className="form-input"
+                  value={this.state.category}
+                  onChange={e => this.handleInputChange(e)}
+                  name="category"
+                >
+                  {categoriesSelect}
+                </select>
+              </div>
+            </form>
+          </div>
+          <div className="footer-modal">
+            <Button
+              text="Add Task"
+              action={this.addTask}
+              className="butt green"
+            />
+            <Button text="Cancel" action={handleToggle} className="butt gray" />
           </div>
         </section>
       </div>
@@ -95,7 +92,3 @@ const mapStateToProps = state => ({
 });
 
 export default connect(mapStateToProps)(AddTaskModal);
-
-AddTaskModal.propTypes = {
-  children: PropTypes.node.isRequired
-};

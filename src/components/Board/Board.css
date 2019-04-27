@@ -4,10 +4,3 @@
   flex-wrap: wrap;
   justify-content: center;
 }
-
-/* test */
-.board {
-  display: flex;
-  flex-wrap: wrap;
-  padding: 0 4px;
-}

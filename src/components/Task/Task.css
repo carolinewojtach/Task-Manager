@@ -5,10 +5,11 @@
   margin-bottom: 5px;
   display: block;
   justify-content: space-between;
+  padding: 5px;
 }
 
 .task-text {
-  margin: 10px 15px;
+  margin: 10px;
 }
 
 .task-completed {
@@ -27,11 +28,11 @@
 }
 
 @media (min-width: 576px) {
-
 }
 
 @media (min-width: 768px) {
- 
 }
-@media (min-width: 992px){}
-@media (min-width: 1200px){}
+@media (min-width: 992px) {
+}
+@media (min-width: 1200px) {
+}
