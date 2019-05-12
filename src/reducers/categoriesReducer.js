@@ -1,10 +1,12 @@
+import * as types from "../actions/actionTypes";
+
 const initialState = {
-  categories: ["School", "Work", "Cooking", "Shopping"]
+  categories: ["School", "Work", "Cooking", "Shopping", "Holidays"]
 };
 
 const categoriesReducer = (state = initialState, action) => {
   switch (action.type) {
-    case "DELETE_CATEGORY":
+    case types.DELETE_CATEGORY:
       return {
         ...state,
         categories: state.categories.filter(
@@ -12,7 +14,7 @@ const categoriesReducer = (state = initialState, action) => {
         )
       };
 
-    case "ADD_CATEGORY": {
+    case types.ADD_CATEGORY: {
       return {
         ...state,
         categories: [...state.categories, action.payload]

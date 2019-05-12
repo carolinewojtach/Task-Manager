@@ -1,13 +1,15 @@
+import * as types from "../actions/actionTypes";
+
 export function addCategory(category) {
   return {
-    type: "ADD_CATEGORY",
+    type: types.ADD_CATEGORY,
     payload: category
   };
 }
 
 export function deleteCategory(id) {
   return {
-    type: "DELETE_CATEGORY",
+    type: types.DELETE_CATEGORY,
     payload: id
   };
 }

@@ -1,10 +1,4 @@
-import {
-  ADD_TASK,
-  DELETE_TASK,
-  FETCH_TASKS,
-  EDIT_TASK,
-  CHECK_TASK_DONE
-} from "../actions/actionTypes";
+import * as types from "../actions/actionTypes";
 
 const initialState = [
   // {
@@ -77,21 +71,21 @@ const randomId = () => {
 
 const tasksReducer = (state = initialState, action) => {
   switch (action.type) {
-    case FETCH_TASKS: {
+    case types.FETCH_TASKS: {
       return state;
     }
 
-    case DELETE_TASK:
+    case types.DELETE_TASK:
       return state.filter(task => task.id !== action.payload);
 
-    case ADD_TASK: {
+    case types.ADD_TASK: {
       let task = { ...action.payload };
       task.id = randomId();
       task.completed = false;
       return [...state, task];
     }
 
-    case EDIT_TASK: {
+    case types.EDIT_TASK: {
       let task = { ...action.payload };
       return state.map(t =>
         t.id === task.id
@@ -103,7 +97,7 @@ const tasksReducer = (state = initialState, action) => {
           : t
       );
     }
-    case CHECK_TASK_DONE:
+    case types.CHECK_TASK_DONE:
       return state.map(task =>
         task.id === action.payload
           ? {

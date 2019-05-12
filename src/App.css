@@ -4,9 +4,9 @@ body {
   font-weight: 400;
   margin: 0;
   padding: 0;
-  min-width: 400px; /* Suppose you want minimum width of 400px */
+  min-width: 300px; /* Suppose you want minimum width of 350px */
   width: auto !important; /* Firefox will set width as auto */
-  width: 400px; /* As IE6 ignores !important it will set width as 400px; */
+  width: 300px; /* As IE6 ignores !important it will set width as 350px; */
 }
 
 html,
@@ -17,12 +17,25 @@ body,
 }
 
 .container {
-  width: 100%;
   margin-right: auto;
   margin-left: auto;
   min-height: 100%;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  min-width: 450px;
+  padding: 10px;
+}
+
+@media (min-width: 980px) {
+  .container {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
 }
