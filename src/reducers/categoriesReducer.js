@@ -1,27 +1,19 @@
-import * as types from "../actions/actionTypes";
+import { CATEGORY_ACTION_TYPES as types } from "../actions/actionTypes";
 
-const initialState = {
-  categories: ["School", "Work", "Cooking", "Shopping", "Holidays"]
-};
+const categories = ["School", "Work", "Cooking", "Shopping", "Holidays"];
 
-const categoriesReducer = (state = initialState, action) => {
+export const categoriesReducer = (state = categories, action) => {
   switch (action.type) {
     case types.DELETE_CATEGORY:
-      return {
+      return [
         ...state,
-        categories: state.categories.filter(
-          category => category.id !== action.payload
-        )
-      };
+        state.filter(category => category.id !== action.payload)
+      ];
 
     case types.ADD_CATEGORY: {
-      return {
-        ...state,
-        categories: [...state.categories, action.payload]
-      };
+      return [...state, action.payload];
     }
     default:
       return state;
   }
 };
-export default categoriesReducer;

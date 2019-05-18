@@ -1,6 +1,6 @@
-import * as types from "../actions/actionTypes";
+import { TASK_ACTION_TYPES as types } from "../actions/actionTypes";
 
-const initialState = [
+const tasks = [
   // {
   //   id: "id-1",
   //   text: "make presentation",
@@ -69,7 +69,7 @@ const randomId = () => {
     .substr(2, 16);
 };
 
-const tasksReducer = (state = initialState, action) => {
+export const tasksReducer = (state = tasks, action) => {
   switch (action.type) {
     case types.FETCH_TASKS: {
       return state;
@@ -111,5 +111,3 @@ const tasksReducer = (state = initialState, action) => {
       return state;
   }
 };
-
-export default tasksReducer;

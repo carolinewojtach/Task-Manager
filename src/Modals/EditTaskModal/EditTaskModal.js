@@ -13,16 +13,16 @@ class EditTaskModal extends Component {
       text: this.props.text,
       category: this.props.category
     };
-    this.editTask = this.editTask.bind(this);
+    this.changeTask = this.changeTask.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
 
     this.text = React.createRef();
     this.category = React.createRef();
   }
 
-  editTask = () => {
+  changeTask = () => {
     this.props.handleToggle();
-    this.props.dispatch(editTask(this.state));
+    this.props.editTask(this.state);
     this.setState({ text: "", categories: this.props.categories[0] });
   };
 
@@ -83,7 +83,7 @@ class EditTaskModal extends Component {
             <div className="footer-modal">
               <Button
                 text="Save"
-                action={this.editTask}
+                action={this.changeTask}
                 className="butt green"
               />
               <Button
@@ -100,8 +100,15 @@ class EditTaskModal extends Component {
 }
 
 const mapStateToProps = state => ({
-  categories: state.categories.categories,
+  categories: state.categories,
   tasks: state.tasks
 });
 
-export default connect(mapStateToProps)(EditTaskModal);
+const mapDispatchToProps = {
+  editTask
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(EditTaskModal);

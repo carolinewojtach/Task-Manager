@@ -88,7 +88,7 @@ class AddTaskModal extends Component {
 }
 
 const mapStateToProps = state => ({
-  categories: state.categories.categories
+  categories: state.categories
 });
 
 export default connect(mapStateToProps)(AddTaskModal);

@@ -7,11 +7,7 @@ import Text from "../Text/Text";
 import EditTaskModal from "../../Modals/EditTaskModal/EditTaskModal";
 import Modal from "../../Modals/Modal/Modal";
 
-import {
-  editTask,
-  checkTaskDone,
-  deleteTask
-} from "../../actions/tasksActions";
+import { checkTaskDone, deleteTask } from "../../actions/tasksActions";
 
 class Task extends Component {
   state = { show: false };
@@ -20,23 +16,17 @@ class Task extends Component {
     this.setState({ show: !this.state.show });
   };
 
-  checkTaskDone = id => {
-    this.props.dispatch(checkTaskDone(id));
-  };
-  deleteTask = id => {
-    this.props.dispatch(deleteTask(id));
-  };
-
   render() {
     const { text, id, completed, category } = this.props;
+    const { checkTaskDone, deleteTask } = this.props;
 
-    const completedClassName = completed
+    const isCompletedClassName = completed
       ? "task-completed"
       : "task-uncompleted";
 
     return (
       <div className="task" key={id}>
-        <div className={completedClassName}>
+        <div className={isCompletedClassName}>
           <Text text={text} className="task-text" />
         </div>
         <div className="tasks-buttons">
@@ -48,12 +38,12 @@ class Task extends Component {
           <ButtonIcon
             id={id}
             type="fas fa-check btn-gray"
-            action={() => this.checkTaskDone(id)}
+            action={() => checkTaskDone(id)}
           />
           <ButtonIcon
             id={id}
             type="fas fa-times btn-gray"
-            action={() => this.deleteTask(id)}
+            action={() => deleteTask(id)}
           />
         </div>
 
@@ -76,4 +66,12 @@ const mapStateToProps = state => ({
   tasks: state.tasks
 });
 
-export default connect(mapStateToProps)(Task);
+const mapDispatchToProps = {
+  checkTaskDone,
+  deleteTask
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Task);

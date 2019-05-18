@@ -6,14 +6,13 @@ import "./Navbar.css";
 import ButtonIcon from "../ButtonIcon/ButtonIcon";
 import AddTaskModal from "../../Modals/AddTaskModal/AddTaskModal";
 import Modal from "../../Modals/Modal/Modal";
-
 import Text from "../Text/Text";
 
 class Navbar extends Component {
-  state = { show: false };
+  state = { showModal: false };
 
   toggleAddTaskModal = () => {
-    this.setState({ show: !this.state.show });
+    this.setState({ showModal: !this.state.showModal });
   };
 
   render() {
@@ -35,7 +34,7 @@ class Navbar extends Component {
         </div>
 
         <Modal>
-          {this.state.show ? (
+          {this.state.showModal ? (
             <AddTaskModal handleToggle={this.toggleAddTaskModal} />
           ) : null}
         </Modal>

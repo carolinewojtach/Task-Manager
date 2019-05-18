@@ -1,35 +1,25 @@
-import * as types from "./actionTypes";
+import { TASK_ACTION_TYPES as types } from "./actionTypes";
 
-export function addTask(task) {
-  return {
-    type: types.ADD_TASK,
-    payload: task
-  };
-}
+export const addTask = task => ({
+  type: types.ADD_TASK,
+  payload: task
+});
 
-export function deleteTask(id) {
-  return {
-    type: types.DELETE_TASK,
-    payload: id
-  };
-}
+export const deleteTask = id => ({
+  type: types.DELETE_TASK,
+  payload: id
+});
 
-export function fetchTasks() {
-  return {
-    type: types.FETCH_TASKS
-  };
-}
+export const fetchTasks = () => ({
+  type: types.FETCH_TASKS
+});
 
-export function editTask(task) {
-  return {
-    type: types.EDIT_TASK,
-    payload: task
-  };
-}
+export const editTask = task => ({
+  type: types.EDIT_TASK,
+  payload: task
+});
 
-export function checkTaskDone(id) {
-  return {
-    type: types.CHECK_TASK_DONE,
-    payload: id
-  };
-}
+export const checkTaskDone = id => ({
+  type: types.CHECK_TASK_DONE,
+  payload: id
+});

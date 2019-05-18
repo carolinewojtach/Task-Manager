@@ -8,19 +8,19 @@ import Task from "../Task/Task";
 
 class TasksList extends Component {
   render() {
-    const { catTitle } = this.props;
+    const { catTitle, tasks } = this.props;
 
-    const tasks = this.props.tasks.filter(task => task.category === catTitle);
+    const tasksList = tasks.filter(task => task.category === catTitle);
 
     return (
-      <Repeat times={tasks.length} className="tasks-list">
+      <Repeat times={tasksList.length} className="tasks-list">
         {i => (
           <Task
-            key={tasks[i].id}
-            id={tasks[i].id}
-            text={tasks[i].text}
-            category={tasks[i].category}
-            completed={tasks[i].completed}
+            key={tasksList[i].id}
+            id={tasksList[i].id}
+            text={tasksList[i].text}
+            category={tasksList[i].category}
+            completed={tasksList[i].completed}
           />
         )}
       </Repeat>
